@@ -37,6 +37,7 @@ st.markdown(
             margin: 4px 0;
             margin-left: 10px;
             margin-right: -40px;
+            color: black;
         }
 
         .assistant-message {
@@ -47,6 +48,7 @@ st.markdown(
             margin: 4px 0;
             margin-left: -10px;
             margin-right: 10px;
+            color: black;
         }
 
         .message-container {
