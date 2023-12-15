@@ -24,6 +24,8 @@ import toml
 import docx2txt
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 from langchain.callbacks.base import BaseCallbackHandler
+from langchain.chat_models import ChatOpenAI
+
 
 st.markdown(
     """
@@ -142,7 +144,7 @@ def main():
         if query:
             docs = VectorStore.similarity_search(query=query, k=3)
  
-            llm = OpenAI(temperature=0,model_name="gpt-4-1106-preview")
+            llm = ChatOpenAI(model_name="gpt-4-1106-preview", openai_api_key=st.secrets["OPENAI_API_KEY"])
             chain = load_qa_chain(llm=llm, chain_type="stuff")
             with get_openai_callback() as cb:
                 response = chain.run(input_documents=docs, question=query)
