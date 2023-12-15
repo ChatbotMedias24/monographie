@@ -25,7 +25,7 @@ import docx2txt
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.chat_models import ChatOpenAI
-import dill
+
 
 
 st.markdown(
@@ -127,7 +127,7 @@ def main():
         embeddings = OpenAIEmbeddings()
         VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
         with open("pikaleee.pkl", "wb") as f:
-            dill.dump(VectorStore, f)
+            pickale.dump(VectorStore, f)
  
         # embeddings = OpenAIEmbeddings()
         # VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
