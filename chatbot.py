@@ -127,7 +127,7 @@ def main():
         embeddings = OpenAIEmbeddings()
         VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
         with open("pikaleee.pkl", "wb") as f:
-            pickale.dump(VectorStore, f)
+            pickle.dump(VectorStore, f)
  
         # embeddings = OpenAIEmbeddings()
         # VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
