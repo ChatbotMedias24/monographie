@@ -8,4 +8,4 @@ streamlit-extras
 tiktoken
 docx2txt
 streamlit_chat
-pickale
+
