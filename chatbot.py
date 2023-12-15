@@ -39,7 +39,6 @@ st.markdown(
             margin: 4px 0;
             margin-left: 10px;
             margin-right: -40px;
-            color: black;
         }
 
         .assistant-message {
@@ -50,7 +49,6 @@ st.markdown(
             margin: 4px 0;
             margin-left: -10px;
             margin-right: 10px;
-            color: black;
         }
 
         .message-container {
@@ -87,18 +85,18 @@ textcontainer = st.container()
 with textcontainer:
     logo_path = "medi.png"
     logoo_path = "mono.png"
-    st.sidebar.image(logo_path,width=150)
-    st.sidebar.image(logoo_path,width=150)
+    st.sidebar.image(logo_path,width=200)
+    st.sidebar.image(logoo_path,width=200)
     
 st.sidebar.subheader("Suggestions:")
 questions = [
-        "Pouvez-vous me fournir un résumé du rapport ? ",
-        "Qu'est-ce qu'un datacenter ?",
-        "Quelle est l'infrastructure d'un datacenter ?",
+        "Donnez-moi un résumé du rapport ",
+        "C'est quoi un datacenter ?",
+        "Quelle est l'infrastruture d'un Datacenter ?",
         "Comment le gouvernement marocain soutient-il les projets de transformation digitale dans le pays ?",
-        "Quelles sont les prévisions de croissance du marché des datacenters au Maroc jusqu'en 2026 ?",
-        "Quelle est la capacité du second datacenter de N+One installé dans la région de Casablanca ?",
-        "Quels sont les services offerts par un datacenter ? "
+        "Quelles sont les prévisions de croissance du marché des Datacenters au Maroc jusqu'en 2026 ?",
+        "Quelle est la capacité du second Datacenter de N+One installé dans la région de Casablanca ?",
+        "Quelles sont les services offerts par un Datacenter ? "
         
     ]    
  
@@ -148,7 +146,7 @@ def main():
             chain = load_qa_chain(llm=llm, chain_type="stuff")
             with get_openai_callback() as cb:
                 response = chain.run(input_documents=docs, question=query)
-                if "Pouvez-vous me fournir un résumé du rapport ?" in query:
+                if "Donnez-moi un résumé du rapport" in query:
                     response = "Le Rapport se concentre sur le marché des Datacenters au Maroc. Il fournit une analyse détaillée des facteurs qui contribuent à la croissance de ce marché en plein essor, tels que la demande croissante de services cloud, la transformation digitale des entreprises et l'augmentation de la connectivité à haut débit. Le rapport examine également les défis auxquels le marché est confronté, notamment la concurrence régionale et la réglementation. Enfin, le rapport fournit des prévisions de croissance pour le marché des Datacenters au Maroc jusqu'en 2026, ainsi que des recommandations pour les acteurs du marché."
 
                 conversation_history.add_user_message(query)
