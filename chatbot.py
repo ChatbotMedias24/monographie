@@ -141,7 +141,7 @@ def main():
         if query:
             docs = VectorStore.similarity_search(query=query, k=3)
  
-            llm = ChatOpenAI(model_name="gpt-4-1106-preview", openai_api_key=st.secrets["OPENAI_API_KEY"])
+            llm = OpenAI(model_name="gpt-4")
             chain = load_qa_chain(llm=llm, chain_type="stuff")
             with get_openai_callback() as cb:
                 response = chain.run(input_documents=docs, question=query)
